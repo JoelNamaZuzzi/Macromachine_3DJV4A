@@ -29,6 +29,13 @@ public class MainMenuScript : MonoBehaviour
     public void btnMusic()
     {
         SoundManager.Instance.musicPlay = !SoundManager.Instance.musicPlay;
+        if (SoundManager.Instance.musicPlay == false)
+        {
+            SoundManager.Instance.StopMusic(Sauce);
+        }else if (SoundManager.Instance.musicPlay == true)
+        {
+            SoundManager.Instance.PlayMusic(mainMenuMusic,Sauce);
+        }
     }
     public void btnSound()
     {

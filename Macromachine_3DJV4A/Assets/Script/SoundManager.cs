@@ -26,4 +26,9 @@ public class SoundManager : MonoBehaviour
         sauce.clip = clip;
         sauce.Play();
     }
+
+    public void StopMusic(AudioSource sauce)
+    {
+        sauce.Stop();
+    }
 }
