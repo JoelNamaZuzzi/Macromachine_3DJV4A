@@ -19,6 +19,11 @@ public class SoundManager : MonoBehaviour
             Destroy (gameObject);
         }
 
-        
+    }
+
+    public void PlayMusic(AudioClip clip, AudioSource sauce)
+    {
+        sauce.clip = clip;
+        sauce.Play();
     }
 }
