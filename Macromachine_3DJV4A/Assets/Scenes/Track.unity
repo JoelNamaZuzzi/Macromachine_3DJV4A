@@ -11842,10 +11842,11 @@ MonoBehaviour:
   Cp: {fileID: 1173502350456781689, guid: 17008c5ce924fad4486d9629ac0cc12c, type: 3}
   CheckpointHolder: {fileID: 1453993111}
   Cars:
-  - {fileID: 1584411533}
-  - {fileID: 1113976431}
+  - {fileID: 1405063581}
+  - {fileID: 1931434201}
   CheckpointPositions: []
   CheckpointForEachCar: []
+  CineMCam: {fileID: 534928459}
 --- !u!4 &1050092106
 Transform:
   m_ObjectHideFlags: 0
@@ -19449,7 +19450,7 @@ GameObject:
   - component: {fileID: 1405063585}
   - component: {fileID: 1405063586}
   m_Layer: 7
-  m_Name: RBB
+  m_Name: RB1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19525,6 +19526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cpCrossed: 0
   CarNumber: 0
+  CarPosition: 2
   racemanager: {fileID: 1050092105}
 --- !u!1 &1409710852
 GameObject:
@@ -33088,7 +33090,7 @@ GameObject:
   - component: {fileID: 1931434205}
   - component: {fileID: 1931434206}
   m_Layer: 8
-  m_Name: RB
+  m_Name: RB2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33164,6 +33166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cpCrossed: 0
   CarNumber: 1
+  CarPosition: 1
   racemanager: {fileID: 1050092105}
 --- !u!850595691 &1937589846
 LightingSettings:
