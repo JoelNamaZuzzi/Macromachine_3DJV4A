@@ -21,6 +21,10 @@ public class CarController : MonoBehaviour
     public ParticleSystem[] dustTrial;
     public float maxEmission = 25f;
     private float emissionRate;
+    
+    //sounds
+    public AudioSource Sauce;
+    public AudioClip CarRun;
 
 
     // Start is called before the first frame update
@@ -35,6 +39,7 @@ public class CarController : MonoBehaviour
         speedInput = 0f;
         if(Input.GetAxis("Vertical_P1") > 0) //Récupération mouvements vertical
         {
+            Debug.Log("Vertical");
             speedInput = Input.GetAxis("Vertical_P1") * forwardAccel * 1000f;
         }
 
@@ -81,12 +86,33 @@ public class CarController : MonoBehaviour
                 theRB.AddForce(transform.forward * speedInput);
 
                 emissionRate = maxEmission;
+                
+                //Play the sound effect if it is activated
+                if (SoundManager.Instance.soundPlay == true)
+                {
+                    if(!Sauce.isPlaying)
+                    {
+                        Sauce.clip = CarRun;
+                        Sauce.Play();
+                    }
+                    
+                }
             }
         }
         else
         {
             theRB.drag = 0.1f;
             theRB.AddForce(Vector3.up * -gravityForce); //Si on avance pas on pousse la voiture vers le sol
+            
+            //on coupe le son du moteur
+            if (SoundManager.Instance.soundPlay == true)
+            {
+                if(!Sauce.isPlaying)
+                {
+                    Sauce.Stop();
+                }
+                    
+            }
         }
 
         foreach (ParticleSystem part in dustTrial)
