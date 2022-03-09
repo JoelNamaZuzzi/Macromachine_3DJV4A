@@ -23,7 +23,7 @@ Material:
   m_Name: HalloMat
   m_Shader: {fileID: -6465566751694194690, guid: b9a8cfe9b44eadf4a8dee0b6c31043e0, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -89,7 +89,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_7965db358a094ffc88c0c23b02366a7d: 0.62
+    - Vector1_7965db358a094ffc88c0c23b02366a7d: 0.72
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
