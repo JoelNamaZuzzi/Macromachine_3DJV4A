@@ -17,7 +17,17 @@ public class RaceManager : MonoBehaviour
 
     public CinemachineVirtualCamera CineMCam;
 
+    public static RaceManager Instance;
+
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
         totalCars = Cars.Length;
@@ -101,14 +111,23 @@ public class RaceManager : MonoBehaviour
 
     public void SetCamFocus() //Set focus on first player
     {
-        for (int i = 0;i<Cars.Length;i++)
+        CineMCam.m_LookAt = Getfirstplaceplayer().transform;
+        CineMCam.m_Follow = Getfirstplaceplayer().transform;
+          
+    }
+
+    public GameObject Getfirstplaceplayer()
+    {
+        for (int i = 0; i < Cars.Length; i++)
         {
-            if(Cars[i].GetComponent<CarcpManager>().CarPosition ==1)
+            if (Cars[i].GetComponent<CarcpManager>().CarPosition == 1)
             {
-                CineMCam.m_LookAt = Cars[i].transform;
-                CineMCam.m_Follow = Cars[i].transform;
+                return Cars[i];
             }
+
         }
+
+        return null;
     }
     // Update is called once per frame
     void Update()
