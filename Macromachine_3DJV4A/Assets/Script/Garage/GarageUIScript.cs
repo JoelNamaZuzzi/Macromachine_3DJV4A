@@ -50,4 +50,10 @@ public class GarageUIScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
     }
+    
+    //Color changes
+    public void btnColor(Material mat)
+    {
+        selectedCar.GetComponent<MeshRenderer>().material = mat;
+    }
 }
