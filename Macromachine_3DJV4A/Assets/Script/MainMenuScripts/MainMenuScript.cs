@@ -16,9 +16,9 @@ public class MainMenuScript : MonoBehaviour
             SoundManager.Instance.PlayMusic(mainMenuMusic, Sauce);
         }
     }
-    public void PlaySolo()
+    public void PlayScene(int SceneNumber)
     {
-        
+        SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
     }
 
     public void QuitApp()
