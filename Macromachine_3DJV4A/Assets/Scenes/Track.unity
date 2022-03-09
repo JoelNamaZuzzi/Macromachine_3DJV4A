@@ -1677,6 +1677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193705985}
+  - component: {fileID: 193705986}
   m_Layer: 0
   m_Name: CP (1)
   m_TagString: Untagged
@@ -1698,6 +1699,19 @@ Transform:
   m_Father: {fileID: 1453993112}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &193705986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193705984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &197598034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +1996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 260222801}
+  - component: {fileID: 260222802}
   m_Layer: 0
   m_Name: CP (3)
   m_TagString: Untagged
@@ -2003,6 +2018,19 @@ Transform:
   m_Father: {fileID: 1453993112}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -28.184, z: 0}
+--- !u!65 &260222802
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260222800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &260263205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2218,6 +2246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 324825553}
+  - component: {fileID: 324825554}
   m_Layer: 0
   m_Name: CP (5)
   m_TagString: Untagged
@@ -2239,6 +2268,19 @@ Transform:
   m_Father: {fileID: 1453993112}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -81.381, z: 0}
+--- !u!65 &324825554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324825552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &328412146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,7 +3504,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534928458}
-  m_LocalRotation: {x: 0.69920784, y: 0.00000022180531, z: -0.00000021693107, w: 0.7149185}
+  m_LocalRotation: {x: 0.69920784, y: -0.0000002218053, z: 0.00000021693103, w: 0.7149185}
   m_LocalPosition: {x: 7, y: 11.441, z: 25.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11324,7 +11366,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.69920784, y: 0.00000022180531, z: -0.00000021693107, w: 0.7149185}
+  m_LocalRotation: {x: 0.69920784, y: -0.0000002218053, z: 0.00000021693103, w: 0.7149185}
   m_LocalPosition: {x: 7, y: 11.441, z: 25.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11846,8 +11888,8 @@ MonoBehaviour:
   Cp: {fileID: 1173502350456781689, guid: 17008c5ce924fad4486d9629ac0cc12c, type: 3}
   CheckpointHolder: {fileID: 1453993111}
   Cars:
-  - {fileID: 1405063581}
   - {fileID: 1931434201}
+  - {fileID: 1405063581}
   CheckpointPositions: []
   CheckpointForEachCar: []
   CineMCam: {fileID: 534928459}
@@ -19611,7 +19653,7 @@ SphereCollider:
   m_GameObject: {fileID: 1405063581}
   m_Material: {fileID: 13400000, guid: 6945fce25defcce40862b5012393c367, type: 2}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.45
   m_Center: {x: 0, y: 0, z: 0}
@@ -19629,6 +19671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cpCrossed: 0
   CarNumber: 0
+  CPnameverif: CP1
   CarPosition: 2
   racemanager: {fileID: 1050092105}
 --- !u!1 &1409710852
@@ -28093,6 +28136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852958096}
+  - component: {fileID: 1852958097}
   m_Layer: 0
   m_Name: CP (4)
   m_TagString: Untagged
@@ -28114,6 +28158,19 @@ Transform:
   m_Father: {fileID: 1453993112}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -53.159, z: 0}
+--- !u!65 &1852958097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852958095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1872258383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8519972745588468132, guid: 1a4d2216e3835ef478f5baa3782d113d, type: 3}
@@ -33350,7 +33407,7 @@ SphereCollider:
   m_GameObject: {fileID: 1931434201}
   m_Material: {fileID: 13400000, guid: 6945fce25defcce40862b5012393c367, type: 2}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.45
   m_Center: {x: 0, y: 0, z: 0}
@@ -33368,6 +33425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cpCrossed: 0
   CarNumber: 1
+  CPnameverif: CP0
   CarPosition: 1
   racemanager: {fileID: 1050092105}
 --- !u!850595691 &1937589846
@@ -34660,6 +34718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2074711125}
+  - component: {fileID: 2074711126}
   m_Layer: 0
   m_Name: CP (2)
   m_TagString: Untagged
@@ -34681,6 +34740,19 @@ Transform:
   m_Father: {fileID: 1453993112}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -8.258, z: 0}
+--- !u!65 &2074711126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074711124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2081812046
 GameObject:
   m_ObjectHideFlags: 0
