@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CP
+  - Car
+  - OutOfCam
   layers:
   - Default
   - TransparentFX
