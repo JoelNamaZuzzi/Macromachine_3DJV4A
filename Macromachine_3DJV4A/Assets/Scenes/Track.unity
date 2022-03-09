@@ -11791,6 +11791,7 @@ MonoBehaviour:
   - {fileID: 1931434201}
   CheckpointPositions: []
   CheckpointForEachCar: []
+  CineMCam: {fileID: 534928459}
 --- !u!4 &1050092106
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class RaceManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class RaceManager : MonoBehaviour
 
     private int totalCars;
     private int totalCheckpoints;
+
+    public CinemachineVirtualCamera CineMCam;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +94,19 @@ public class RaceManager : MonoBehaviour
                 carInFront.GetComponent<CarcpManager>().CarPosition = carInFrontpos + 1;
 
                 Debug.Log("Car" + carNumber + "has over taken" + carInFront.GetComponent<CarcpManager>().CarNumber);
+                SetCamFocus();
+            }
+        }
+    }
+
+    public void SetCamFocus() //Set focus on first player
+    {
+        for (int i = 0;i<Cars.Length;i++)
+        {
+            if(Cars[i].GetComponent<CarcpManager>().CarPosition ==1)
+            {
+                CineMCam.m_LookAt = Cars[i].transform;
+                CineMCam.m_Follow = Cars[i].transform;
             }
         }
     }
