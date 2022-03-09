@@ -6,6 +6,7 @@ public class CarcpManager : MonoBehaviour
 {
     public int cpCrossed = 0;
     public int CarNumber;
+    public int CarPosition;
     public RaceManager racemanager;
 
     private void OnTriggerEnter(Collider other)
