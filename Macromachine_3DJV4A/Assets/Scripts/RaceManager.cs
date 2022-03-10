@@ -9,10 +9,12 @@ public class RaceManager : MonoBehaviour
     public GameObject CheckpointHolder;
 
     public GameObject[] Cars;
+    public int[] Playerslife;
+    public GameObject[] PlayerUILife;
     public Transform[] CheckpointPositions;
     public GameObject[] CheckpointForEachCar;
 
-    private int totalCars;
+    public int totalCars;
     private int totalCheckpoints;
 
     public CinemachineVirtualCamera CineMCam;
@@ -27,11 +29,16 @@ public class RaceManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        totalCars = Cars.Length;
+        totalCheckpoints = CheckpointHolder.transform.childCount;
+        Playerslife = new int[totalCars];
+        PlayerUILife = new GameObject[totalCars];
+        InitPlayersLife();
     }
     void Start()
     {
-        totalCars = Cars.Length;
-        totalCheckpoints = CheckpointHolder.transform.childCount;
+      
         setCheckpoints();
         setCarPosition();
     }
@@ -128,6 +135,26 @@ public class RaceManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void InitPlayersLife()
+    {
+        for(int i =0;i<totalCars;i++)
+        {
+            Playerslife[i] = PartyManager.Instance.nblife;
+        }
+    }
+
+    public void CheckDeath()
+    {
+        for (int i=0; i<Playerslife.Length;i++)
+        {
+            if (Playerslife[i] <= 0)
+            {
+                Debug.Log("Player " + Cars[i].GetComponent<LinkToCarParent>().CarParent.name + " is Dead");
+                Destroy(Cars[i].GetComponent<LinkToCarParent>().CarParent);
+            }
+        }
     }
     // Update is called once per frame
     void Update()
