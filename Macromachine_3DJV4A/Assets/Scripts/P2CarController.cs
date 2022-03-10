@@ -51,7 +51,10 @@ public class P2CarController : MonoBehaviour
 
         if (grounded)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis("Vertical_P2"), 0f)); //* Input.GetAxis("Vertical") pour ne pas pouvoir rotate sans avancer
+            float x = transform.rotation.x;
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis("Vertical_P2"), 0f)); //* Input.GetAxis("Vertical") pour ne pas pouvoir rotate sans avancer, provoque une rotation forcée sur X
+            transform.eulerAngles = new Vector3(x, transform.eulerAngles.y, 0f); //provoque rotation forcée sur y
+           
         }
 
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, turnInput * maxwheelturn - 180, leftFrontWheel.localRotation.eulerAngles.z);
@@ -71,7 +74,9 @@ public class P2CarController : MonoBehaviour
         {
             grounded = true;
 
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            float y = transform.eulerAngles.y;
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation; //prob of rotate
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, y, 0f);
         }
 
         emissionRate = 0;
@@ -100,8 +105,8 @@ public class P2CarController : MonoBehaviour
         }
         else
         {
-            theRB.drag = 0.1f;
-            theRB.AddForce(Vector3.up * -gravityForce); //Si on avance pas on pousse la voiture vers le sol
+            theRB.drag = 0.1f; 
+            theRB.AddForce(Vector3.up * -gravityForce); //Si on avance pas on pousse la voiture vers le sol 
             
             //on coupe le son du moteur
             if (SoundManager.Instance.soundPlay == true)

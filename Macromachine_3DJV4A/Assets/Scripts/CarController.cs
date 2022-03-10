@@ -52,7 +52,9 @@ public class CarController : MonoBehaviour
 
         if (grounded)
         {
+            float x = transform.rotation.x;
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, turnInput * turnStrength * Time.deltaTime * Input.GetAxis("Vertical_P1"), 0f)); //* Input.GetAxis("Vertical") pour ne pas pouvoir rotate sans avancer
+            transform.eulerAngles = new Vector3(x, transform.eulerAngles.y, 0f); //provoque rotation forcée sur y
         }
 
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, turnInput * maxwheelturn - 180, leftFrontWheel.localRotation.eulerAngles.z);
@@ -72,7 +74,9 @@ public class CarController : MonoBehaviour
         {
             grounded = true;
 
-            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            float y = transform.eulerAngles.y;
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation; //prob of rotate
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, y, 0f);
         }
 
         emissionRate = 0;
