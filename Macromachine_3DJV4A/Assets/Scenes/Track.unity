@@ -12563,7 +12563,7 @@ MonoBehaviour:
   maxSpeed: 50
   turnStrength: 180
   gravityForce: 80
-  dragOnGround: 3
+  dragOnGround: 2
   whatisGround:
     serializedVersion: 2
     m_Bits: 64
@@ -19924,6 +19924,7 @@ GameObject:
   - component: {fileID: 1405063583}
   - component: {fileID: 1405063585}
   - component: {fileID: 1405063586}
+  - component: {fileID: 1405063587}
   m_Layer: 7
   m_Name: RB1
   m_TagString: Car
@@ -20004,6 +20005,19 @@ MonoBehaviour:
   CPnameverif: CP1
   CarPosition: 2
   racemanager: {fileID: 1050092105}
+--- !u!114 &1405063587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405063581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3658395e40da4254d8b2a0863c07820b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarParent: {fileID: 1584411533}
 --- !u!1 &1409710852
 GameObject:
   m_ObjectHideFlags: 0
@@ -21689,7 +21703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1584411534
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33842,6 +33856,7 @@ GameObject:
   - component: {fileID: 1931434203}
   - component: {fileID: 1931434205}
   - component: {fileID: 1931434206}
+  - component: {fileID: 1931434207}
   m_Layer: 8
   m_Name: RB2
   m_TagString: Car
@@ -33922,6 +33937,19 @@ MonoBehaviour:
   CPnameverif: CP0
   CarPosition: 1
   racemanager: {fileID: 1050092105}
+--- !u!114 &1931434207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931434201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3658395e40da4254d8b2a0863c07820b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarParent: {fileID: 1113976431}
 --- !u!850595691 &1937589846
 LightingSettings:
   m_ObjectHideFlags: 0
