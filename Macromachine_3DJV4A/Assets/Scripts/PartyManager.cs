@@ -6,17 +6,17 @@ public class PartyManager : MonoBehaviour
 {
 
     public GameObject LifeCanvas;
-    public int nblife;
+    public int nblife=0;
     public GameObject parentlife = null;
     public GameObject lifeUI;
     public static PartyManager Instance;
-    // Start is called before the first frame update
 
 
     private void Awake()
     {
         if (Instance == null)
         {
+            Debug.Log("HERE");
             Instance = this;
         }
 

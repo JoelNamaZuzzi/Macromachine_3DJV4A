@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class RaceManager : MonoBehaviour
 {
@@ -34,11 +35,11 @@ public class RaceManager : MonoBehaviour
         totalCheckpoints = CheckpointHolder.transform.childCount;
         Playerslife = new int[totalCars];
         PlayerUILife = new GameObject[totalCars];
-        InitPlayersLife();
+        
     }
     void Start()
     {
-      
+        InitPlayersLife();
         setCheckpoints();
         setCarPosition();
     }
@@ -152,9 +153,40 @@ public class RaceManager : MonoBehaviour
             if (Playerslife[i] <= 0)
             {
                 Debug.Log("Player " + Cars[i].GetComponent<LinkToCarParent>().CarParent.name + " is Dead");
-                Destroy(Cars[i].GetComponent<LinkToCarParent>().CarParent);
+                Cars[i].GetComponent<LinkToCarParent>().CarParent.SetActive(false);
+                checkWinner();
             }
         }
+    }
+
+    public GameObject checkWinner()
+    {
+        int notdead = 0;
+        for (int i = 0; i < Playerslife.Length; i++)
+        {
+            if (Playerslife[i]>0)
+            {
+                notdead += 1;
+            }
+
+        }
+
+        if (notdead ==1)
+        {
+            for (int i = 0; i < Playerslife.Length; i++)
+            {
+                if (Playerslife[i] > 0)
+                {
+                    SceneManager.LoadScene(3);
+                    return Cars[i].GetComponent<LinkToCarParent>().CarParent;
+                    
+                    
+                }
+
+            }
+        }
+
+        return null;
     }
     // Update is called once per frame
     void Update()
