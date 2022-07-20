@@ -21,9 +21,10 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void PlayMusic(AudioClip clip, AudioSource sauce)
+    public void PlayMusic(SoundObjectClass sound, AudioSource sauce)
     {
-        sauce.clip = clip;
+        sauce.clip = sound.mySound;
+        sauce.volume = sound.priority;
         sauce.Play();
     }
 

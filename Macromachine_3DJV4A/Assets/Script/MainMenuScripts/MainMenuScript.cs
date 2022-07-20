@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MainMenuScript : MonoBehaviour
 {
-
+    public SoundObjectClass mainMenuSound;
     public AudioClip mainMenuMusic;
     public AudioClip theClick;
     public AudioSource Sauce;
@@ -13,7 +13,7 @@ public class MainMenuScript : MonoBehaviour
     {
         if (SoundManager.Instance.musicPlay == true)
         {
-            SoundManager.Instance.PlayMusic(mainMenuMusic, Sauce);
+            SoundManager.Instance.PlayMusic(mainMenuSound, Sauce);
         }
     }
     public void PlayScene(int SceneNumber)
@@ -34,7 +34,7 @@ public class MainMenuScript : MonoBehaviour
             SoundManager.Instance.StopMusic(Sauce);
         }else if (SoundManager.Instance.musicPlay == true)
         {
-            SoundManager.Instance.PlayMusic(mainMenuMusic,Sauce);
+            SoundManager.Instance.PlayMusic(mainMenuSound,Sauce);
         }
     }
     public void btnSound()
