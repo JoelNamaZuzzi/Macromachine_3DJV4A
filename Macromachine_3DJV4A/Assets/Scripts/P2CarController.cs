@@ -23,8 +23,8 @@ public class P2CarController : MonoBehaviour
     private float emissionRate;
     
     //sounds
-    public AudioSource Sauce;
-    public AudioClip CarRun;
+    public AudioSource sauce;
+    public SoundObjectClass carRun;
 
 
     // Start is called before the first frame update
@@ -67,6 +67,7 @@ public class P2CarController : MonoBehaviour
    
     private void FixedUpdate()
     {
+        //Debug.Log(theRB.velocity.x);
         grounded = false;
         RaycastHit hit;
 
@@ -92,15 +93,13 @@ public class P2CarController : MonoBehaviour
                 emissionRate = maxEmission;
                 
                 //Play the sound effect if it is activated
-                if (SoundManager.Instance.soundPlay == true)
-                {
-                    if(!Sauce.isPlaying)
-                    {
-                        Sauce.clip = CarRun;
-                        Sauce.Play();
-                    }
-                    
-                }
+                SoundManager.Instance.PlaySoundEffect(carRun, sauce);
+            }
+            if(theRB.velocity.x > -0.001f)
+            {
+                //on coupe le son du moteur
+                SoundManager.Instance.StopSound(sauce);
+                //Debug.Log("stopped");
             }
         }
         else
@@ -109,14 +108,7 @@ public class P2CarController : MonoBehaviour
             theRB.AddForce(Vector3.up * -gravityForce); //Si on avance pas on pousse la voiture vers le sol 
             
             //on coupe le son du moteur
-            if (SoundManager.Instance.soundPlay == true)
-            {
-                if(!Sauce.isPlaying)
-                {
-                    Sauce.Stop();
-                }
-                    
-            }
+            SoundManager.Instance.StopSound(sauce);
         }
 
         foreach (ParticleSystem part in dustTrial)

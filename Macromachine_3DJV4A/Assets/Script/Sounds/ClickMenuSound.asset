@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a4af4642c9ca34eb6c36197df80a4f, type: 3}
+  m_Name: ClickMenuSound
+  m_EditorClassIdentifier: 
+  objName: ClickSound
+  mySound: {fileID: 8300000, guid: ca6e21c5b301d6743892a10c061c327d, type: 3}
+  priority: 0.7

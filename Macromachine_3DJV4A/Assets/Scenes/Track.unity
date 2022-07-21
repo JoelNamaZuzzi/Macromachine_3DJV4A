@@ -3543,7 +3543,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534928458}
-  m_LocalRotation: {x: 0.6992079, y: -0.000000065349916, z: 0.000000063913845, w: 0.7149185}
+  m_LocalRotation: {x: 0.69920784, y: 0.00000022180531, z: -0.00000021693107, w: 0.7149185}
   m_LocalPosition: {x: 7, y: 11.441, z: 25.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11115,7 +11115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868474523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -62.29493, y: 91.4, z: -28.797867}
+  m_LocalPosition: {x: 100.9, y: 91.4, z: -239.8}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11287,11 +11287,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 752a7de6974eb884e94fadcb57a02dc8, type: 3}
---- !u!23 &908794031 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -2160538185192768936, guid: 025590a762a89824abe811efd090aea4, type: 3}
-  m_PrefabInstance: {fileID: 1617547815}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &917021731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11709,7 +11704,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.6992079, y: -0.000000065349916, z: 0.000000063913845, w: 0.7149185}
+  m_LocalRotation: {x: 0.69920784, y: 0.00000022180531, z: -0.00000021693107, w: 0.7149185}
   m_LocalPosition: {x: 7, y: 11.441, z: 25.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12812,7 +12807,6 @@ GameObject:
   - component: {fileID: 1113976432}
   - component: {fileID: 1113976434}
   - component: {fileID: 1113976435}
-  - component: {fileID: 1113976436}
   m_Layer: 8
   m_Name: Car 2
   m_TagString: Untagged
@@ -12851,8 +12845,8 @@ MonoBehaviour:
   - {fileID: 758977455}
   - {fileID: 1829634971}
   maxEmission: 25
-  Sauce: {fileID: 1113976435}
-  CarRun: {fileID: 8300000, guid: a356502590e74e345aeaad82221444ee, type: 3}
+  sauce: {fileID: 1113976435}
+  carRun: {fileID: 11400000, guid: b971041256e7b3242b25b120ee7d9ede, type: 2}
 --- !u!4 &1113976433
 Transform:
   m_ObjectHideFlags: 0
@@ -13008,22 +13002,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1113976436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113976431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d86342abea2e340899750415b8afef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRespawning: 0
-  CarColor: {r: 0.9245283, g: 0.6799959, b: 0.082858644, a: 0}
-  carBody:
-  - {fileID: 908794031}
 --- !u!1 &1114046108
 GameObject:
   m_ObjectHideFlags: 0
@@ -22073,8 +22051,8 @@ MonoBehaviour:
   - {fileID: 1332825475}
   - {fileID: 1924740528}
   maxEmission: 25
-  Sauce: {fileID: 1584411537}
-  CarRun: {fileID: 8300000, guid: a356502590e74e345aeaad82221444ee, type: 3}
+  sauce: {fileID: 1584411537}
+  CarRun: {fileID: 11400000, guid: b971041256e7b3242b25b120ee7d9ede, type: 2}
 --- !u!82 &1584411537
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22183,8 +22161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d86342abea2e340899750415b8afef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRespawning: 0
-  CarColor: {r: 0.8773585, g: 0.037246335, b: 0.037246335, a: 0}
   carBody:
   - {fileID: 7062833852854060821}
 --- !u!1001 &1584512017
@@ -22423,19 +22399,19 @@ PrefabInstance:
     - target: {fileID: -2160538185192768936, guid: 025590a762a89824abe811efd090aea4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0741af65b0b6ce048a6e868e156637d9, type: 2}
+      objectReference: {fileID: 2100000, guid: 9c2a5a56c94b6624a928635a4c4849b7, type: 2}
     - target: {fileID: -2160538185192768936, guid: 025590a762a89824abe811efd090aea4, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 0741af65b0b6ce048a6e868e156637d9, type: 2}
+      objectReference: {fileID: 2100000, guid: 9c2a5a56c94b6624a928635a4c4849b7, type: 2}
     - target: {fileID: -2160538185192768936, guid: 025590a762a89824abe811efd090aea4, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 0741af65b0b6ce048a6e868e156637d9, type: 2}
+      objectReference: {fileID: 2100000, guid: 9c2a5a56c94b6624a928635a4c4849b7, type: 2}
     - target: {fileID: -2160538185192768936, guid: 025590a762a89824abe811efd090aea4, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 0741af65b0b6ce048a6e868e156637d9, type: 2}
+      objectReference: {fileID: 2100000, guid: 9c2a5a56c94b6624a928635a4c4849b7, type: 2}
     - target: {fileID: -927199367670048503, guid: 025590a762a89824abe811efd090aea4, type: 3}
       propertyPath: m_Name
       value: race
@@ -22714,7 +22690,7 @@ GameObject:
   - component: {fileID: 1661463865}
   - component: {fileID: 1661463864}
   m_Layer: 0
-  m_Name: AudioSauce
+  m_Name: ZiqueSauce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22842,8 +22818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b01127419a4074c85cc110d85fd548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrackClip: {fileID: 8300000, guid: d55ab26c227fb244fb0f26e8b749b440, type: 3}
-  Sauce: {fileID: 1661463864}
+  trackMusic: {fileID: 11400000, guid: e31b1ea25f4091946851a323399ea30b, type: 2}
+  ZiqueSauce: {fileID: 1661463864}
 --- !u!1 &1666471255
 GameObject:
   m_ObjectHideFlags: 0

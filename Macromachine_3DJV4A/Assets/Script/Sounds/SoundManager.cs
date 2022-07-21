@@ -21,14 +21,35 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void PlayMusic(AudioClip clip, AudioSource sauce)
+    public void PlayMusic(SoundObjectClass zique, AudioSource sauce)
     {
-        sauce.clip = clip;
-        sauce.Play();
+        if (musicPlay)
+        {
+            sauce.clip = zique.mySound;
+            sauce.volume = zique.priority;
+            sauce.Play();
+            
+        }
     }
-
+    
+    public void PlaySoundEffect(SoundObjectClass sound, AudioSource sauce)
+    {
+        if (soundPlay&& !sauce.isPlaying)
+        {
+            sauce.clip = sound.mySound;
+            sauce.volume = sound.priority;
+            sauce.Play();
+            
+        }
+    }
+    
     public void StopMusic(AudioSource sauce)
     {
+        sauce.Stop();
+    }
+    public void StopSound(AudioSource sauce)
+    {
+        //Debug.Log("playing");
         sauce.Stop();
     }
 }

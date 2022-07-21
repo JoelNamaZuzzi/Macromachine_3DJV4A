@@ -23,8 +23,8 @@ public class CarController : MonoBehaviour
     private float emissionRate;
     
     //sounds
-    public AudioSource Sauce;
-    public AudioClip CarRun;
+    public AudioSource sauce;
+    public SoundObjectClass CarRun;
 
 
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class CarController : MonoBehaviour
         speedInput = 0f;
         if(Input.GetAxis("Vertical_P1") > 0) //Récupération mouvements vertical
         {
-            Debug.Log("Vertical");
+            //Debug.Log("Vertical");
             speedInput = Input.GetAxis("Vertical_P1") * forwardAccel * 1000f;
         }
 
@@ -67,6 +67,7 @@ public class CarController : MonoBehaviour
  
     private void FixedUpdate()
     {
+        //Debug.Log(theRB.velocity.x);
         grounded = false;
         RaycastHit hit;
 
@@ -81,7 +82,6 @@ public class CarController : MonoBehaviour
 
         emissionRate = 0;
 
-
         if (grounded)
         {
             theRB.drag = dragOnGround;
@@ -92,15 +92,13 @@ public class CarController : MonoBehaviour
                 emissionRate = maxEmission;
                 
                 //Play the sound effect if it is activated
-                if (SoundManager.Instance.soundPlay == true)
-                {
-                    if(!Sauce.isPlaying)
-                    {
-                        Sauce.clip = CarRun;
-                        Sauce.Play();
-                    }
-                    
-                }
+                SoundManager.Instance.PlaySoundEffect(CarRun, sauce);
+            }
+            if(theRB.velocity.x > -0.001f)
+            {
+                //on coupe le son du moteur
+                SoundManager.Instance.StopSound(sauce);
+                //Debug.Log("stopped");
             }
         }
         else
@@ -108,15 +106,6 @@ public class CarController : MonoBehaviour
             theRB.drag = 0.1f;
             theRB.AddForce(Vector3.up * -gravityForce); //Si on avance pas on pousse la voiture vers le sol
             
-            //on coupe le son du moteur
-            if (SoundManager.Instance.soundPlay == true)
-            {
-                if(!Sauce.isPlaying)
-                {
-                    Sauce.Stop();
-                }
-                    
-            }
         }
 
         foreach (ParticleSystem part in dustTrial)

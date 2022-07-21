@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class PlayMusicOnTrack : MonoBehaviour
 {
-    public AudioClip TrackClip;
-    public AudioSource Sauce;
+    public SoundObjectClass trackMusic;
+    public AudioSource ZiqueSauce;
 
     private void Start()
     {
-        if (SoundManager.Instance.musicPlay == true)
-        {
-            Sauce.clip = TrackClip;
-            Sauce.Play();
-        }
+        SoundManager.Instance.PlayMusic(trackMusic, ZiqueSauce);
     }
 }
