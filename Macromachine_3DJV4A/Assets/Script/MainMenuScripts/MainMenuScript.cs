@@ -5,20 +5,17 @@ using UnityEngine;
 
 public class MainMenuScript : MonoBehaviour
 {
-
-    public AudioClip mainMenuMusic;
-    public AudioClip theClick;
-    public AudioSource Sauce;
+    public SoundObjectClass mainMenuSound;
+    public SoundObjectClass clickMenuSound;
+    public AudioSource ziqueSauce;
+    public AudioSource soundSauce;
     void Start()
-    {
-        if (SoundManager.Instance.musicPlay == true)
-        {
-            SoundManager.Instance.PlayMusic(mainMenuMusic, Sauce);
-        }
+    { 
+        SoundManager.Instance.PlayMusic(mainMenuSound, ziqueSauce);
     }
-    public void PlayScene(int SceneNumber)
+    public void PlayScene(int sceneNumber)
     {
-        SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneNumber, LoadSceneMode.Single);
     }
 
     public void QuitApp()
@@ -26,27 +23,24 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
     }
     
-    public void btnMusic()
+    public void BtnMusic()
     {
         SoundManager.Instance.musicPlay = !SoundManager.Instance.musicPlay;
         if (SoundManager.Instance.musicPlay == false)
         {
-            SoundManager.Instance.StopMusic(Sauce);
-        }else if (SoundManager.Instance.musicPlay == true)
+            SoundManager.Instance.StopMusic(ziqueSauce);
+        }else if (SoundManager.Instance.musicPlay)
         {
-            SoundManager.Instance.PlayMusic(mainMenuMusic,Sauce);
+            SoundManager.Instance.PlayMusic(mainMenuSound,ziqueSauce);
         }
     }
-    public void btnSound()
+    public void BtnSound()
     {
         SoundManager.Instance.soundPlay = !SoundManager.Instance.soundPlay;
     }
 
-    public void btnClick()
+    public void BtnClick()
     {
-        if (SoundManager.Instance.soundPlay == true)
-        {
-            AudioSource.PlayClipAtPoint(theClick, Sauce.transform.position);
-        }
+        SoundManager.Instance.PlaySoundEffect(clickMenuSound,soundSauce);
     }
 }

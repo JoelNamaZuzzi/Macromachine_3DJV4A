@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -6,10 +7,17 @@ using UnityEngine;
 public class GarageUIScript : MonoBehaviour
 {
     public GameObject Cam;
-    public AudioClip theClick;
-    public AudioSource Sauce;
+    public AudioSource ZiqueSauce;
+    public AudioSource SoundSauce;
+    public SoundObjectClass zique;
+    public SoundObjectClass btnSound;
     private GameObject selectedCar;
     private bool carModif;
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayMusic(zique, ZiqueSauce);
+    }
 
     public void btnPosBool(bool isMain)
     {
@@ -40,10 +48,7 @@ public class GarageUIScript : MonoBehaviour
     
     public void btnClick()
     {
-        if (SoundManager.Instance.soundPlay == true)
-        {
-            AudioSource.PlayClipAtPoint(theClick, Sauce.transform.position);
-        }
+        SoundManager.Instance.PlaySoundEffect(btnSound, SoundSauce);
     }
     
     public void backMenu(int SceneNumber)
