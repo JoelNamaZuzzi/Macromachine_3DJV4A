@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,15 @@ public class CamControl : MonoBehaviour
 {
     [SerializeField] private Vector3 beginPos;
     [SerializeField] private Vector3 initRot;
+    public float speed=1.0f;
     private Rigidbody rb;
     public GameObject nextCheck;
     public Vector3 nextPos;
+    [SerializeField]private bool car1=false;
+    [SerializeField]private bool car2=false;
+    [SerializeField]private bool car3=false;
+    [SerializeField]private bool car4=false;
+
     void Start()
     {
         nextPos = nextCheck.transform.position;
@@ -19,13 +26,62 @@ public class CamControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity =transform.up *1.0f;
+        //rb.velocity =transform.up *1.0f;
         if (Vector3.Distance(nextPos, transform.position) <= 0.1f)
         {
             transform.position = nextCheck.transform.position;
             transform.rotation = Quaternion.Euler(nextCheck.GetComponent<NextCheckPTS>().Rot);
             nextCheck = nextCheck.GetComponent<NextCheckPTS>().nextCheck;
             nextPos = nextCheck.transform.position;
+        }
+
+        if (car1 || car2 || car3 || car4)
+        {
+            rb.velocity = transform.up * speed;
+        }
+        else
+        {
+            rb.velocity = transform.up * 0.0f;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            car1 = true;
+        }
+        else if (other.gameObject.layer == 8)
+        {
+            car2 = true;
+        }
+        else if (other.gameObject.layer == 9)
+        {
+            car3 = true;
+        }
+        else if (other.gameObject.layer == 10)
+        {
+            car4 = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            car1 = false;
+        }
+        else if (other.gameObject.layer == 8)
+        {
+            car2 = false;
+        }
+        else if (other.gameObject.layer == 9)
+        {
+            car3 = false;
+        }
+        else if (other.gameObject.layer == 10)
+        {
+            car4 = false;
         }
     }
 }
