@@ -19,8 +19,6 @@ public class RaceManager : MonoBehaviour
     public int totalCars;
     private int totalCheckpoints;
 
-    public CinemachineVirtualCamera CineMCam;
-
     public static RaceManager Instance;
     public String Winner;
 
@@ -114,16 +112,8 @@ public class RaceManager : MonoBehaviour
                 carInFront.GetComponent<CarcpManager>().CarPosition = carInFrontpos + 1;
 
                 Debug.Log("Car" + carNumber + "has over taken" + carInFront.GetComponent<CarcpManager>().CarNumber);
-                SetCamFocus();
             }
         }
-    }
-
-    public void SetCamFocus() //Set focus on first player
-    {
-        CineMCam.m_LookAt = Getfirstplaceplayer().transform;
-        CineMCam.m_Follow = Getfirstplaceplayer().transform;
-          
     }
 
     public GameObject Getfirstplaceplayer()
