@@ -27,12 +27,14 @@ public class CamControl : MonoBehaviour
     void FixedUpdate()
     {
         //rb.velocity =transform.up *1.0f;
-        if (Vector3.Distance(nextPos, transform.position) <= 0.1f)
+        //Debug.Log(Vector3.Distance(nextPos, transform.position));
+        if (Vector3.Distance(nextPos, transform.position) <= 0.5f)
         {
             transform.position = nextCheck.transform.position;
             transform.rotation = Quaternion.Euler(nextCheck.GetComponent<NextCheckPTS>().Rot);
             nextCheck = nextCheck.GetComponent<NextCheckPTS>().nextCheck;
             nextPos = nextCheck.transform.position;
+            Debug.Log("test");
         }
 
         if (car1 || car2 || car3 || car4)
