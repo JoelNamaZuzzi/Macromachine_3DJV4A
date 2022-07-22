@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class RaceManager : MonoBehaviour
     public CinemachineVirtualCamera CineMCam;
 
     public static RaceManager Instance;
+    public String Winner;
 
     // Start is called before the first frame update
 
@@ -177,10 +179,9 @@ public class RaceManager : MonoBehaviour
             {
                 if (Playerslife[i] > 0)
                 {
+                    Winner = Cars[i].GetComponent<LinkToCarParent>().CarParent.name;
                     SceneManager.LoadScene(3);
                     return Cars[i].GetComponent<LinkToCarParent>().CarParent;
-                    
-                    
                 }
 
             }
