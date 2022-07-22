@@ -59,4 +59,12 @@ public class DissolutionScript : MonoBehaviour
         }
         
     }
+
+    public void ResetColor()
+    {
+        foreach(Renderer body in carBody)
+        {
+            body.material.SetColor("_ColorBody",CarColor);
+        }
+    }
 }
