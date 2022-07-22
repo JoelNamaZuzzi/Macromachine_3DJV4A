@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Mirror;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -43,4 +44,12 @@ public class MainMenuScript : MonoBehaviour
     {
         SoundManager.Instance.PlaySoundEffect(clickMenuSound,soundSauce);
     }
+
+    public void HostLobby()
+    {
+        NetworkManager.singleton.StartHost();
+    }
+    
+    
+    
 }
