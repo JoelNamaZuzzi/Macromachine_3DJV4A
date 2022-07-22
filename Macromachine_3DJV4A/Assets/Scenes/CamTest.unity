@@ -273,8 +273,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beginPos: {x: -2, y: 2.5, z: 2}
   initRot: {x: 90, y: 0, z: -90}
+  speed: 1
   nextCheck: {fileID: 1164380289}
   nextPos: {x: 0, y: 0, z: 0}
+  car1: 0
+  car2: 0
+  car3: 0
+  car4: 0
 --- !u!65 &10215290
 BoxCollider:
   m_ObjectHideFlags: 0
