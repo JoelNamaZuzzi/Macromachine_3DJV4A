@@ -43,11 +43,11 @@ public class CamControl : MonoBehaviour
         }
         else
         {
-            rb.velocity = transform.up * 0.0f;
+            rb.velocity = Vector3.zero;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 7)
         {

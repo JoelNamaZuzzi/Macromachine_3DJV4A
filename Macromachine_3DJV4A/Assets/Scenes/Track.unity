@@ -13216,7 +13216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beginPos: {x: 5.25, y: 11.5, z: 25}
   initRot: {x: 90, y: 0, z: 0}
-  speed: 25
+  speed: 30
   nextCheck: {fileID: 1040084453}
   nextPos: {x: 0, y: 0, z: 0}
   car1: 0
