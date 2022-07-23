@@ -4952,7 +4952,7 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 7154436424212883093, guid: 90201ecb9aec9a34d9b4010cd17dd374, type: 3}
+  playerPrefab: {fileID: 7519911335634518989, guid: 73bb486bee5adcd4e9478994b7105b28, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs: []

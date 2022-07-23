@@ -53,7 +53,7 @@ public class MicromaniaNetworkManager : NetworkManager
 
         isGameInProgress = true;
         
-        ServerChangeScene("Track");
+        ServerChangeScene("MTrack");
     }
 
 
@@ -71,7 +71,7 @@ public class MicromaniaNetworkManager : NetworkManager
 
     public override void OnServerSceneChanged(string sceneName)
     {
-        if (SceneManager.GetActiveScene().name.StartsWith("Track"))
+        if (SceneManager.GetActiveScene().name.StartsWith("MTrack"))
         {
             /*foreach (MacromaniaNetworkPlayer player in Players)
             {
