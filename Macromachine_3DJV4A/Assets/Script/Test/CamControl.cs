@@ -15,6 +15,8 @@ public class CamControl : MonoBehaviour
     [SerializeField]private bool car2=false;
     [SerializeField]private bool car3=false;
     [SerializeField]private bool car4=false;
+    public float playerHeigth=0.0f;
+    public Vector3 playerRot;
 
     void Start()
     {
@@ -30,6 +32,8 @@ public class CamControl : MonoBehaviour
         //Debug.Log(Vector3.Distance(nextPos, transform.position));
         if (Vector3.Distance(nextPos, transform.position) <= 0.5f)
         {
+            playerRot = nextCheck.GetComponent<NextCheckPTS>().playerRot;
+            playerHeigth = nextCheck.GetComponent<NextCheckPTS>().ph;
             transform.position = nextCheck.transform.position;
             transform.rotation = Quaternion.Euler(nextCheck.GetComponent<NextCheckPTS>().Rot);
             nextCheck = nextCheck.GetComponent<NextCheckPTS>().nextCheck;
