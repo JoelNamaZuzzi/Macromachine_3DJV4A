@@ -49,7 +49,17 @@ public class MainMenuScript : MonoBehaviour
     {
         NetworkManager.singleton.StartHost();
     }
-    
-    
+
+    public void ChangeZiqueValue(float val)
+    {
+        SoundManager.Instance.musicVolume = val;
+        ziqueSauce.volume = mainMenuSound.priority * val;
+    }
+
+    public void ChangeSoundValue(float val)
+    {
+        SoundManager.Instance.soundVolume = val;
+        ziqueSauce.volume = clickMenuSound.priority * val;
+    }
     
 }

@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     public bool musicPlay = true;
     public bool soundPlay = true;
     public static SoundManager Instance;
+    public float musicVolume=1.0f;
+    public float soundVolume=1.0f;
     void Awake ()   
     {
         if (Instance == null)
@@ -26,7 +28,7 @@ public class SoundManager : MonoBehaviour
         if (musicPlay)
         {
             sauce.clip = zique.mySound;
-            sauce.volume = zique.priority;
+            sauce.volume = zique.priority*musicVolume;
             sauce.Play();
             
         }
@@ -37,7 +39,7 @@ public class SoundManager : MonoBehaviour
         if (soundPlay&& !sauce.isPlaying)
         {
             sauce.clip = sound.mySound;
-            sauce.volume = sound.priority;
+            sauce.volume = sound.priority*soundVolume;
             sauce.Play();
             
         }
