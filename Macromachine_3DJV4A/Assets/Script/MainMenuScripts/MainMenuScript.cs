@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using Mirror;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -10,8 +12,23 @@ public class MainMenuScript : MonoBehaviour
     public SoundObjectClass clickMenuSound;
     public AudioSource ziqueSauce;
     public AudioSource soundSauce;
+
+    [SerializeField]
+    private Slider slideZique;
+    [SerializeField]
+    private Slider slideSound;
+    
+
+    private void Awake()
+    {
+
+    }
+
     void Start()
     { 
+        SoundManager.Instance.LoadSounds();
+        slideZique.value = SoundManager.Instance.musicVolume;
+        slideSound.value = SoundManager.Instance.soundVolume;
         SoundManager.Instance.PlayMusic(mainMenuSound, ziqueSauce);
     }
     public void PlayScene(int sceneNumber)
@@ -49,7 +66,17 @@ public class MainMenuScript : MonoBehaviour
     {
         NetworkManager.singleton.StartHost();
     }
-    
-    
+
+    public void ChangeZiqueValue(float val)
+    {
+        SoundManager.Instance.musicVolume = val;
+        ziqueSauce.volume = mainMenuSound.priority * val;
+    }
+
+    public void ChangeSoundValue(float val)
+    {
+        SoundManager.Instance.soundVolume = val;
+        soundSauce.volume = clickMenuSound.priority * val;
+    }
     
 }

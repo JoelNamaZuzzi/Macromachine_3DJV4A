@@ -2114,7 +2114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextCheck: {fileID: 1245786835}
   Rot: {x: 90, y: 0, z: -180}
-  ph: 0
+  ph: 5.67
   playerRot: {x: 0, y: 180, z: 0}
 --- !u!23 &199561348
 MeshRenderer:
