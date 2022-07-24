@@ -124,4 +124,6 @@ public class MacromaniaNetworkPlayer : NetworkBehaviour
 
         AuthorityOnPartyOwnerStateUpdated?.Invoke(newState);
     }
+    
+    
 }

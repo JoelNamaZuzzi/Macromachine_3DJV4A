@@ -19,7 +19,7 @@ public class WhoWin : MonoBehaviour
         }
     }
     
-    void Start()
+    void Update()
     {
         Winner = RaceManager.Instance.Winner;
         Debug.Log(Winner);

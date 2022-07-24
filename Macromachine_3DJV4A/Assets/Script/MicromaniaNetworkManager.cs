@@ -15,8 +15,9 @@ public class MicromaniaNetworkManager : NetworkManager
 
     [SerializeField] private GameObject carPrefab;
     private bool isGameInProgress;
-
-    private string winner;
+    
+    [SerializeField]
+    private WinnerCollector winner;
 
     [SerializeField]
     public List<MacromaniaNetworkPlayer> Players;
@@ -98,7 +99,7 @@ public class MicromaniaNetworkManager : NetworkManager
         
         if (SceneManager.GetActiveScene().name.StartsWith("WIN"))
         {
-            RaceManager.Instance.Winner = winner;
+            RaceManager.Instance.Winner = winner.GetWinner();
         }
     }
 
@@ -140,14 +141,31 @@ public class MicromaniaNetworkManager : NetworkManager
         {
             if (player.GetLive() > 0)
             {
-                winner = player.name;
-                ServerChangeScene("WIN");
+                winner.SetWinner(player.GetName());
+                ServerChangeScene("MWIN");
                 return;
             }
         }
         
     }
+    
+    public string GetWinner()
+    {
+        return winner.GetWinner();
+    }
+    
+    public void Disconnect() 
+    {
+        if (NetworkServer.active && NetworkClient.isConnected)
+        {
+           StopHost();
+        }
+        else
+        {
+            StopClient();
+        }
 
+    }
 
 
 
