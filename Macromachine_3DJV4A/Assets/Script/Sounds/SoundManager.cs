@@ -54,4 +54,18 @@ public class SoundManager : MonoBehaviour
         //Debug.Log("playing");
         sauce.Stop();
     }
+
+    public void LoadSounds()
+    {
+        SoundsData data = SaveSounds.LoadSound();
+        musicPlay = data.isMusic;
+        soundPlay = data.isSound;
+        musicVolume = data.musicVol;
+        soundVolume = data.soundVol;
+    }
+
+    public void SaveTheSound()
+    {
+        SaveSounds.SaveSoundParam(this);
+    }
 }
