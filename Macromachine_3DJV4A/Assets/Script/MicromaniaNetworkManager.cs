@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,8 +15,11 @@ public class MicromaniaNetworkManager : NetworkManager
 
     [SerializeField] private GameObject carPrefab;
     private bool isGameInProgress;
-    
-    public List<MacromaniaNetworkPlayer> Players { get; } = new List<MacromaniaNetworkPlayer>();
+
+    private string winner;
+
+    [SerializeField]
+    public List<MacromaniaNetworkPlayer> Players;
 
     #region Server
 
@@ -65,6 +69,18 @@ public class MicromaniaNetworkManager : NetworkManager
 
         Players.Add(player);
         
+        player.SetPlayerNumber(numPlayers);
+        
+        player.SetPlayerName($"Player{numPlayers}");
+
+        CarController controller = conn.identity.GetComponent<CarController>();
+
+        if (!conn.identity.isLocalPlayer)
+        {
+            controller.enabled = false;
+        }
+        
+        
         player.SetPartyOwner(Players.Count == 1);
         
     }
@@ -73,10 +89,16 @@ public class MicromaniaNetworkManager : NetworkManager
     {
         if (SceneManager.GetActiveScene().name.StartsWith("MTrack"))
         {
-            /*foreach (MacromaniaNetworkPlayer player in Players)
+            foreach (MacromaniaNetworkPlayer player in Players)
             {
-                Instantiate()
-            }*/
+                player.transform.position = GetStartPosition().position;
+                player.GetCar().GetComponent<CarController>().theRB.transform.position=GetStartPosition().position;
+            }
+        }
+        
+        if (SceneManager.GetActiveScene().name.StartsWith("WIN"))
+        {
+            RaceManager.Instance.Winner = winner;
         }
     }
 
@@ -95,11 +117,38 @@ public class MicromaniaNetworkManager : NetworkManager
     {
         ClienOnDisconnected?.Invoke();
     }
+    
 
     #endregion
 
-    
+    public void CheckDeath()
+    {
+       foreach (MacromaniaNetworkPlayer player in Players)
+        {
+            if (player.GetLive() <= 0)
+            {
+                //Debug.Log("Player " + player.GetCar().GetComponent<LinkToCarParent>().CarParent.name + " is Dead");
+                checkWinner();
+                return;
+            }
+        }
+    }
+
+    public void checkWinner()
+    {
+        foreach (MacromaniaNetworkPlayer player in Players)
+        {
+            if (player.GetLive() > 0)
+            {
+                winner = player.name;
+                ServerChangeScene("WIN");
+                return;
+            }
+        }
+        
+    }
 
 
-    
+
+
 }

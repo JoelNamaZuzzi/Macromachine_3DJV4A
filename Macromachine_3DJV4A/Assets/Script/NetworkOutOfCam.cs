@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+using Mirror;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
-public class OutOfCam : MonoBehaviour
+public class NetworkOutOfCam : MonoBehaviour
 {
     private GameObject cardissolve;
     [SerializeField] private GameObject cam;
@@ -18,18 +17,19 @@ public class OutOfCam : MonoBehaviour
             //other.transform.position = RaceManager.Instance.Getfirstplaceplayer().transform.position;
             other.transform.position = new Vector3(cam.transform.position.x,cam.GetComponent<CamControl>().playerHeigth ,cam.transform.position.z);
             Debug.Log(other.GetComponent<LinkToCarParent>().CarParent.name);
-            RaceManager.Instance.Playerslife[other.GetComponent<CarcpManager>().CarNumber] -= 1; //-1 life pour le player sorti
+            other.GetComponent<LinkToCarParent>().CarParent.gameObject.GetComponent<MacromaniaNetworkPlayer>().cmdReduceLive();
+            //RaceManager.Instance.Playerslife[other.GetComponent<CarcpManager>().CarNumber] -= 1; //-1 life pour le player sorti
 
-            Destroy(RaceManager.Instance.PlayerUILife[other.GetComponent<CarcpManager>().CarNumber].transform.GetChild(RaceManager.Instance.PlayerUILife[other.GetComponent<CarcpManager>().CarNumber].transform.childCount - 1).gameObject);//Afficher la vie en moins
-            //RaceManager.Instance.CheckDeath();
+            //Destroy(RaceManager.Instance.PlayerUILife[other.GetComponent<CarcpManager>().CarNumber].transform.GetChild(RaceManager.Instance.PlayerUILife[other.GetComponent<CarcpManager>().CarNumber].transform.childCount - 1).gameObject);//Afficher la vie en moins
+           ((MicromaniaNetworkManager)NetworkManager.singleton).CheckDeath();
             
 
             //other.GetComponent<LinkToCarParent>().CarParent.transform.rotation = RaceManager.Instance.Getfirstplaceplayer().GetComponent<LinkToCarParent>().CarParent.transform.rotation; //On met à la voiture sortante la rotation du winner, le RB ne sert pas pour la rotation dans CarController
-            other.GetComponent<LinkToCarParent>().CarParent.transform.rotation = Quaternion.Euler(cam.GetComponent<CamControl>().playerRot);
+            //other.GetComponent<LinkToCarParent>().CarParent.transform.rotation = Quaternion.Euler(cam.GetComponent<CamControl>().playerRot);
 
             // on donne au perdant les stats du premier joueur
-            other.GetComponent<CarcpManager>().cpCrossed = RaceManager.Instance.Getfirstplaceplayer().GetComponent<CarcpManager>().cpCrossed;
-            RaceManager.Instance.CarCollectedCp(other.GetComponent<CarcpManager>().CarNumber, other.GetComponent<CarcpManager>().cpCrossed);
+            //other.GetComponent<CarcpManager>().cpCrossed = RaceManager.Instance.Getfirstplaceplayer().GetComponent<CarcpManager>().cpCrossed;
+            //RaceManager.Instance.CarCollectedCp(other.GetComponent<CarcpManager>().CarNumber, other.GetComponent<CarcpManager>().cpCrossed);
         }
     }
 }
