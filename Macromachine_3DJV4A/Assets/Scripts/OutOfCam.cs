@@ -21,7 +21,7 @@ public class OutOfCam : MonoBehaviour
             RaceManager.Instance.Playerslife[other.GetComponent<CarcpManager>().CarNumber] -= 1; //-1 life pour le player sorti
 
             Destroy(RaceManager.Instance.PlayerUILife[other.GetComponent<CarcpManager>().CarNumber].transform.GetChild(RaceManager.Instance.PlayerUILife[other.GetComponent<CarcpManager>().CarNumber].transform.childCount - 1).gameObject);//Afficher la vie en moins
-            //RaceManager.Instance.CheckDeath();
+            RaceManager.Instance.CheckDeath();
             
 
             //other.GetComponent<LinkToCarParent>().CarParent.transform.rotation = RaceManager.Instance.Getfirstplaceplayer().GetComponent<LinkToCarParent>().CarParent.transform.rotation; //On met à la voiture sortante la rotation du winner, le RB ne sert pas pour la rotation dans CarController
